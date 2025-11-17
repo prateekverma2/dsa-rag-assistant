@@ -1,2 +1,72 @@
-# dsa-rag-assistant
-A custom Retrieval-Augmented Generation (RAG) based DSA Tutor with auto-learning, hallucination-control validation, Groq/Ollama dual-model support, Pinecone vector storage, and full chat history save/load memory system — built using Streamlit.
+# 🧠 DSA Tutor RAG — Custom Retrieval-Augmented Learning System
+
+> A self-learning AI tutor for Data Structures & Algorithms (DSA) built using a **custom RAG (Retrieval-Augmented Generation)** pipeline with **auto-learning**, **validation**, and **context retrieval**.
+
+---
+
+## 🚀 Overview
+
+**DSA Tutor RAG** is a fully custom RAG system — no LangChain dependency.  
+It retrieves relevant knowledge from Pinecone, validates its own answers using LLMs (Groq + OpenAI), and auto-learns from approved responses.
+
+This makes it a **self-improving AI tutor** for students and developers learning DSA.
+
+---
+
+## ✨ Features
+
+| Feature                                | Description                                             |
+| -------------------------------------- | ------------------------------------------------------- |
+| 🧠 **Custom RAG Engine**               | Pure Python implementation of retrieval + generation.   |
+| 🔎 **Dual Validation (Groq + OpenAI)** | Cross-verifies answers before auto-learning.            |
+| 📚 **Auto-Learning System**            | Automatically promotes correct answers into Pinecone.   |
+| 🌐 **Cloud + Local Mode**              | Toggle between Groq (cloud) or Ollama (local).          |
+| 🧩 **Context-Aware Chat**              | Fetches relevant DSA context dynamically.               |
+| 💬 **Streamlit UI**                    | Interactive tutor interface with chat history and logs. |
+| 🛡️ **Safety Filter**                   | Blocks non-DSA and irrelevant topics.                   |
+
+---
+
+## ⚙️ System Requirements
+
+| Component  | Minimum Version                |
+| ---------- | ------------------------------ |
+| **Python** | 3.9+                           |
+| **pip**    | 22.0+                          |
+| **RAM**    | 8 GB+ (recommended for Ollama) |
+| **OS**     | Windows / macOS / Linux        |
+
+---
+
+## 📦 Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/<your-username>/dsa-tutor-rag.git
+cd dsa-tutor-rag
+
+#CREATE VIRTUAL ENVIRONMENT
+python -m venv .venv
+# For Windows:
+.venv\Scripts\activate
+# For macOS/Linux:
+source .venv/bin/activate
+#Install Dependencies
+pip install -r requirements.txt
+
+
+##LOAD .env##
+
+##start##
+streamlit run src/ui/app.py
+#for pinecone indexing
+python -m scripts.build_index
+
+📊 Example Questions
+👨‍🎓 Explain QuickSort with example.
+👨‍🎓 Write Python code for binary search.
+👨‍🎓 What is the time complexity of Merge Sort?
+👨‍🎓 Compare BFS and DFS traversal.
+👨‍🎓 What is dynamic programming?
+```
