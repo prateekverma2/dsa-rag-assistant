@@ -1,0 +1,27 @@
+indexer:
+  data_dirs:
+    pdf_dir: data/pdfs
+    cache_dir: data/embeddings_cache
+
+  chunking:
+    min_chunk_size: 300
+    max_chunk_size: 800
+    similarity_threshold: 0.75
+
+  embeddings:
+    model: "sentence-transformers/all-MiniLM-L6-v2"
+    cache_dir: data/embeddings_cache
+    dimension: 384
+
+  vector_store:
+    api_key: ${PINECONE_API_KEY}
+    environment: ${PINECONE_ENVIRONMENT}
+    index_name: dsa-tutor-index
+    dimension: 384
+    namespace: main
+retriever:
+  model: all-MiniLM-L6-v2
+  top_k: 5
+  vector_store:
+    index_name: dsa-tutor-index
+    namespace: main
